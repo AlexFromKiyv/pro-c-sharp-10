@@ -29,6 +29,10 @@
                     Click="cmdProcess_Click">
                 Click to Flip Your Images!
             </Button>
+            <Button Name="cmdProcessWithForEachAsync" Grid.Row="0" Grid.Column="1" Margin="420,10,18,10"
+                    Click="cmdProcessWithForEachAsync_Click">
+                Process With ForEachAsync
+            </Button>
         </Grid>
     </Grid>
 </Window>
