@@ -60,8 +60,8 @@ public static class LoggingConfiguration
             .Enrich.WithMachineName()
             .WriteTo.File(
                 path: builder.Environment.IsDevelopment()
-                    ? settings.File.FileName
-                    : settings.File.FullLogPathAndFileName, // "ErrorLog.txt",
+                    ? settings.File.FullLogPathAndFileName 
+                    : settings.File.FileName,
                 rollingInterval: RollingInterval.Day,
                 restrictedToMinimumLevel: logLevel,
                 outputTemplate: OutputTemplate)
