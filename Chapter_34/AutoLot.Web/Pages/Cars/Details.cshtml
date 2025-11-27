@@ -5,7 +5,6 @@
     //ViewData["Title"] = "Details";
 }
 
-<h1>Details for @Model.Entity.PetName</h1>
 @if (!string.IsNullOrEmpty(Model.Error))
 {
     <div class="alert alert-danger" role="alert">
@@ -14,6 +13,7 @@
 }
 else
 {
+    <h1>Details for @Model.Entity.PetName</h1>
     @Html.DisplayFor(m => m.Entity)
     @*@Html.DisplayFor(m => m.Entity, "CarWithColors")*@
 
