@@ -1,19 +1,12 @@
 namespace AutoLot.Web.Pages.Cars;
 
-public class IndexModel : PageModel
+public class IndexModel : BasePageModel<Car, IndexModel>
 {
-    private readonly IAppLogging<IndexModel> _appLogging;
-    private readonly ICarDataService _carService;
-
-    [ViewData]
-    public string Title => "Inventory";
-
-    public IndexModel(IAppLogging<IndexModel> appLogging, ICarDataService carService)
-    {
-        _appLogging = appLogging;
-        _carService = carService;
-    }
-
+    public IndexModel(
+        IAppLogging<IndexModel> appLogging, 
+        ICarDataService dataService) : base(appLogging, dataService, "Inventory")
+    {}
+    
     public string MakeName { get; set; }
     public int? MakeId { get; set; }
     public IEnumerable<Car> CarRecords { get; set; }
@@ -21,6 +14,6 @@ public class IndexModel : PageModel
     {
         MakeId = makeId;
         MakeName = makeName;
-        CarRecords = await _carService.GetAllByMakeIdAsync(makeId);
+        CarRecords = await ((ICarDataService)DataService).GetAllByMakeIdAsync(makeId);
     }
 }
