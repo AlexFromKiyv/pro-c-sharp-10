@@ -397,7 +397,6 @@ public class CarTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixture
             var car = new Car
             {
                 Color = "Yellow",
-                MakeId = 1,
                 PetName = "Herbie",
                 RadioNavigation = new Radio
                 {
